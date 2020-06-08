@@ -4,12 +4,12 @@
 
             <h2>Produits disponibles</h2>
             <div class="card-deck">
-                <Produit v-for="produit in produits" v-bind:nom="produit.nom" v-bind:prix="produit.prix" />
+                <Produit v-for="produit in produits" v-bind:nom="produit.nom" role="commander" v-bind:prix="produit.prix" v-on:commande="ajouterProduit"/>
             </div>
 
             <h2>Produits commandés</h2>
             <div class="card-deck">
-                <Produit v-for="produit in commandes" v-bind:nom="produit.nom" v-bind:prix="produit.prix" />
+                <Produit v-for="produit in commandes" v-bind:nom="produit.nom" role="affichage" v-bind:prix="produit.prix" />
             </div>
         </div>
 </template>
@@ -33,6 +33,11 @@ export default {
             commandes: [
                 { nom: 'Frites', prix: 2.0 }
             ]
+        }
+    },
+    methods:{
+        ajouterProduit(nom, prix){
+            this.commandes.push({nom: nom, prix: prix})
         }
     }
 }

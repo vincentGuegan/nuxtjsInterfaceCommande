@@ -4,6 +4,7 @@
         <div class="card-body">
             <p class="card-text">Prix : {{ prix }}</p>
             <hr/>
+            <button v-if="role == 'commander'" @click="$emit('commande', nom, prix)" class="btn btn-success" >Commander !</button>
         </div>
     </div>
 </template>
@@ -11,6 +12,6 @@
 <script>
 export default {
     name: "Produit",
-    props: ["nom", "prix"]
+    props: ["nom", "prix", "role"]
 }
 </script>
