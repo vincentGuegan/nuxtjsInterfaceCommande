@@ -1,7 +1,5 @@
 # nuxtjsInterfaceCommande
 
-> My kickass Nuxt.js project
-
 ## Build Setup
 
 ```bash
